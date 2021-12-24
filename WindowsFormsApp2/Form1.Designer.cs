@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Player = new System.Windows.Forms.PictureBox();
             this.gametimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
@@ -37,9 +38,11 @@
             // Player
             // 
             this.Player.BackColor = System.Drawing.Color.DimGray;
+            this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
             this.Player.Location = new System.Drawing.Point(360, 450);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(80, 100);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player.TabIndex = 0;
             this.Player.TabStop = false;
             // 
