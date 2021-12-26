@@ -120,24 +120,25 @@
             // 
             // ob1
             // 
-            this.ob1.Location = new System.Drawing.Point(829, 360);
+            this.ob1.Location = new System.Drawing.Point(820, 368);
             this.ob1.Name = "ob1";
-            this.ob1.Size = new System.Drawing.Size(100, 83);
+            this.ob1.Size = new System.Drawing.Size(90, 60);
             this.ob1.TabIndex = 6;
             this.ob1.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox4.BackColor = System.Drawing.Color.Red;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(781, 54);
+            this.pictureBox4.Size = new System.Drawing.Size(800, 55);
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
             // 
             // skor
             // 
             this.skor.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skor.Location = new System.Drawing.Point(2, 0);
+            this.skor.Location = new System.Drawing.Point(0, 0);
             this.skor.Name = "skor";
             this.skor.Size = new System.Drawing.Size(257, 34);
             this.skor.TabIndex = 8;
@@ -153,6 +154,7 @@
             // 
             // tulisannyawa
             // 
+            this.tulisannyawa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tulisannyawa.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tulisannyawa.Location = new System.Drawing.Point(478, 0);
             this.tulisannyawa.Name = "tulisannyawa";
