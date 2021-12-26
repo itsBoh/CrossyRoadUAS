@@ -14,14 +14,14 @@ namespace WindowsFormsApp2
     {
         int vertikal = 0;
         int horizontal = 0;
-        int pergerakanHorizontal = 60;
         int kecepatanOb = 20;
-
+        int hitungSkor = 0;
+        int nyawa = 3;
 
         public Form1()
         {
             InitializeComponent();
-
+            tulisannyawa.Text = "LIFE";
         }
         private void keydownevent(object sender, KeyEventArgs e)
         {
@@ -31,7 +31,9 @@ namespace WindowsFormsApp2
             }
             else if (e.KeyCode == Keys.Up && Player.Top <300)
             {
-
+                hitungSkor++;
+                if (hitungSkor % 4 == 0 && hitungSkor > 1)
+                    kecepatanOb += 2;
             }
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
@@ -49,7 +51,17 @@ namespace WindowsFormsApp2
         private void gametimerevent(object sender, EventArgs e)
         {
             if (Player.Bounds.IntersectsWith(ob1.Bounds))
+            {
+                nyawa--;
+                nyawalive.Left += 60;
+                //reset posisi player
+                Player.Top = 365;
+                Player.Left = 270;
+            }
+            if (nyawa == 0)
                 gametimer.Stop();
+
+            skor.Text = "SCORE : " + hitungSkor.ToString();
 
             ob1.Left -= kecepatanOb;
             if (ob1.Left < 0)

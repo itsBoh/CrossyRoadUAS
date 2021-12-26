@@ -37,6 +37,10 @@
             this.map1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ob1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.skor = new System.Windows.Forms.TextBox();
+            this.nyawalive = new System.Windows.Forms.PictureBox();
+            this.tulisannyawa = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -44,6 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.map1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ob1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).BeginInit();
             this.SuspendLayout();
             // 
             // Player
@@ -120,11 +126,48 @@
             this.ob1.TabIndex = 6;
             this.ob1.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(781, 54);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // skor
+            // 
+            this.skor.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skor.Location = new System.Drawing.Point(2, 0);
+            this.skor.Name = "skor";
+            this.skor.Size = new System.Drawing.Size(257, 34);
+            this.skor.TabIndex = 8;
+            // 
+            // nyawalive
+            // 
+            this.nyawalive.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.nyawalive.Location = new System.Drawing.Point(592, 0);
+            this.nyawalive.Name = "nyawalive";
+            this.nyawalive.Size = new System.Drawing.Size(191, 34);
+            this.nyawalive.TabIndex = 9;
+            this.nyawalive.TabStop = false;
+            // 
+            // tulisannyawa
+            // 
+            this.tulisannyawa.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tulisannyawa.Location = new System.Drawing.Point(478, 0);
+            this.tulisannyawa.Name = "tulisannyawa";
+            this.tulisannyawa.Size = new System.Drawing.Size(117, 34);
+            this.tulisannyawa.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.tulisannyawa);
+            this.Controls.Add(this.nyawalive);
+            this.Controls.Add(this.skor);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.ob1);
             this.Controls.Add(this.Player);
             this.Controls.Add(this.pictureBox1);
@@ -143,7 +186,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.map1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ob1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,6 +203,10 @@
         private System.Windows.Forms.PictureBox map1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox ob1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox skor;
+        private System.Windows.Forms.PictureBox nyawalive;
+        private System.Windows.Forms.MaskedTextBox tulisannyawa;
     }
 }
 
