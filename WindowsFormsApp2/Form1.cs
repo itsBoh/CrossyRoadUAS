@@ -23,10 +23,6 @@ namespace WindowsFormsApp2
             InitializeComponent();
 
         }
-        public void DrawRectangle(PaintEventArgs e)
-        {
-            Rectangle rect = new Rectangle(0,0,200,200);
-        }
         private void keydownevent(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up && Player.Top > 300)
@@ -63,10 +59,6 @@ namespace WindowsFormsApp2
             Player.Left += horizontal;
             vertikal = 0;
             horizontal = 0;
-        }
-        private static Graphics CreateGraphocs()
-        {
-            throw new NotImplementedException();
         }
     }
 }
