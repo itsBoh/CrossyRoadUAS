@@ -50,7 +50,7 @@ namespace WindowsFormsApp2
         }
         private void gametimerevent(object sender, EventArgs e)
         {
-            if (Player.Bounds.IntersectsWith(ob1.Bounds))
+            if (Player.Bounds.IntersectsWith(mobil1.Bounds))
             {
                 nyawa--;
                 nyawalive.Left += 60;
@@ -62,11 +62,15 @@ namespace WindowsFormsApp2
                 gametimer.Stop();
 
             skor.Text = "SCORE : " + hitungSkor.ToString();
-
-            ob1.Left -= kecepatanOb;
-            if (ob1.Left < 0)
-                ob1.Left = 800;
-
+            
+            //gerak obj
+            mobil1.Left -= kecepatanOb;
+            if (mobil1.Left < 0)
+                mobil1.Left = 800;
+            mobil2.Left += kecepatanOb;
+            if (mobil2.Left > 900)
+                mobil2.Left = -110;
+            
             Player.Top += vertikal;
             Player.Left += horizontal;
             vertikal = 0;

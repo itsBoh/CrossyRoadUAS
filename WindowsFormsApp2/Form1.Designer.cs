@@ -36,20 +36,22 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.map1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.ob1 = new System.Windows.Forms.PictureBox();
+            this.mobil1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.skor = new System.Windows.Forms.TextBox();
             this.nyawalive = new System.Windows.Forms.PictureBox();
             this.tulisannyawa = new System.Windows.Forms.MaskedTextBox();
+            this.mobil2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.map1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ob1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobil1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobil2)).BeginInit();
             this.SuspendLayout();
             // 
             // Player
@@ -118,13 +120,13 @@
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
             // 
-            // ob1
+            // mobil1
             // 
-            this.ob1.Location = new System.Drawing.Point(820, 368);
-            this.ob1.Name = "ob1";
-            this.ob1.Size = new System.Drawing.Size(90, 60);
-            this.ob1.TabIndex = 6;
-            this.ob1.TabStop = false;
+            this.mobil1.Location = new System.Drawing.Point(820, 360);
+            this.mobil1.Name = "mobil1";
+            this.mobil1.Size = new System.Drawing.Size(90, 60);
+            this.mobil1.TabIndex = 6;
+            this.mobil1.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -161,16 +163,25 @@
             this.tulisannyawa.Size = new System.Drawing.Size(117, 34);
             this.tulisannyawa.TabIndex = 10;
             // 
+            // mobil2
+            // 
+            this.mobil2.Location = new System.Drawing.Point(-110, 260);
+            this.mobil2.Name = "mobil2";
+            this.mobil2.Size = new System.Drawing.Size(90, 60);
+            this.mobil2.TabIndex = 11;
+            this.mobil2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(1310, 553);
+            this.Controls.Add(this.mobil2);
             this.Controls.Add(this.tulisannyawa);
             this.Controls.Add(this.nyawalive);
             this.Controls.Add(this.skor);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.ob1);
+            this.Controls.Add(this.mobil1);
             this.Controls.Add(this.Player);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.map1);
@@ -187,9 +198,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.map1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ob1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobil1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobil2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,11 +216,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox map1;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox ob1;
+        private System.Windows.Forms.PictureBox mobil1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox skor;
         private System.Windows.Forms.PictureBox nyawalive;
         private System.Windows.Forms.MaskedTextBox tulisannyawa;
+        private System.Windows.Forms.PictureBox mobil2;
     }
 }
 
