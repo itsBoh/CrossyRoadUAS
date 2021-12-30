@@ -8,29 +8,31 @@ namespace WindowsFormsApp2
     {
         int vertikal = 0;
         int horizontal = 0;
-        int kecepatanOb = 20;
+        int kecepatanObbawah = 20;
+        int kecepatanObatas = 25;
         int hitungSkor = 0;
         int nyawa = 3;
         int randomObj;
+        int awal = 0;
         Random rand = new Random();
         List<string> listObj = new List<string>();
-        List<int> kecepatan = new List<int>();
+        List<string> listObst = new List<string>();
 
 
         public Form1()
         {
             InitializeComponent();
-
-            
-
             tulisannyawa.Text = "LIFE";
-            listObj.Add("");
-            listObj.Add("mobil1");
-            listObj.Add("mobil2");
-            listObj.Add("mobil3");
-            listObj.Add("mobil4");
-            for (int i = 0; i < 5; i++)
-                kecepatan.Add(rand.Next(kecepatanOb - 10, kecepatanOb + 1));
+            listObj.Add("obj1");
+            listObj.Add("obj2");
+            listObj.Add("obj3");
+            listObj.Add("obj4");
+            listObj.Add("obj5");
+            listObj.Add("obj5");
+            listObj.Add("obj6");
+            listObj.Add("obj7");
+            listObj.Add("obj8");
+
         }
         private void keydownevent(object sender, KeyEventArgs e)
         {
@@ -42,7 +44,10 @@ namespace WindowsFormsApp2
             {
                 hitungSkor++;
                 if (hitungSkor % 4 == 0 && hitungSkor > 1)
-                    kecepatanOb += 2;
+                {
+                    kecepatanObbawah += 2;
+                    kecepatanObatas += 2;
+                }
                 randomObj = rand.Next(1, 9);
             }
             if (e.KeyCode == Keys.Down && Player.Top < 300)
@@ -63,7 +68,7 @@ namespace WindowsFormsApp2
             if (Player.Bounds.IntersectsWith(mobil1.Bounds))
             {
                 nyawa--;
-                nyawalive.Left += 60;
+                nyawalive.Left += 45;
                 //reset posisi player
                 Player.Top = 365;
                 Player.Left = 270;
@@ -74,16 +79,16 @@ namespace WindowsFormsApp2
             skor.Text = "SCORE : " + hitungSkor.ToString();
 
             //gerak obj
-            mobil1.Left -= kecepatanOb;
+            mobil1.Left -= kecepatanObbawah;
             if (mobil1.Left < 0)
                 mobil1.Left = 800;
-            mobil2.Left += kecepatanOb;
+            mobil2.Left += kecepatanObbawah;
             if (mobil2.Left > 900)
                 mobil2.Left = -110;
-            mobil3.Left -= kecepatanOb;
+            mobil3.Left -= kecepatanObbawah;
             if (mobil3.Left < 0)
                 mobil3.Left = 800;
-            mobil4.Left += kecepatanOb;
+            mobil4.Left += kecepatanObbawah;
             if (mobil4.Left > 900)
                 mobil4.Left = -110;
 
@@ -93,7 +98,7 @@ namespace WindowsFormsApp2
             horizontal = 0;
 
             //ini buat nyoba
-            buatnyoba.Text = randomObj.ToString();
+            buatnyoba.Text = mobil4.Top.ToString()+ " " + mobil4.Left.ToString();
         }
     }
 }

@@ -105,9 +105,9 @@
             // nyawalive
             // 
             this.nyawalive.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.nyawalive.Location = new System.Drawing.Point(592, 0);
+            this.nyawalive.Location = new System.Drawing.Point(602, 0);
             this.nyawalive.Name = "nyawalive";
-            this.nyawalive.Size = new System.Drawing.Size(191, 34);
+            this.nyawalive.Size = new System.Drawing.Size(180, 34);
             this.nyawalive.TabIndex = 9;
             this.nyawalive.TabStop = false;
             // 
@@ -115,9 +115,9 @@
             // 
             this.tulisannyawa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tulisannyawa.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tulisannyawa.Location = new System.Drawing.Point(478, 0);
+            this.tulisannyawa.Location = new System.Drawing.Point(490, 0);
             this.tulisannyawa.Name = "tulisannyawa";
-            this.tulisannyawa.Size = new System.Drawing.Size(117, 34);
+            this.tulisannyawa.Size = new System.Drawing.Size(120, 34);
             this.tulisannyawa.TabIndex = 10;
             // 
             // mobil2
@@ -146,7 +146,7 @@
             // 
             // buatnyoba
             // 
-            this.buatnyoba.Location = new System.Drawing.Point(360, 92);
+            this.buatnyoba.Location = new System.Drawing.Point(328, 14);
             this.buatnyoba.Name = "buatnyoba";
             this.buatnyoba.Size = new System.Drawing.Size(100, 22);
             this.buatnyoba.TabIndex = 14;
