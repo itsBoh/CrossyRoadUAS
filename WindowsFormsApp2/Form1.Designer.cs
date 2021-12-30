@@ -32,23 +32,33 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.gametimer = new System.Windows.Forms.Timer(this.components);
             this.back = new System.Windows.Forms.PictureBox();
-            this.mobil1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.obj1 = new System.Windows.Forms.PictureBox();
+            this.bgtop = new System.Windows.Forms.PictureBox();
             this.skor = new System.Windows.Forms.TextBox();
             this.nyawalive = new System.Windows.Forms.PictureBox();
             this.tulisannyawa = new System.Windows.Forms.MaskedTextBox();
-            this.mobil2 = new System.Windows.Forms.PictureBox();
-            this.mobil3 = new System.Windows.Forms.PictureBox();
-            this.mobil4 = new System.Windows.Forms.PictureBox();
-            this.buatnyoba = new System.Windows.Forms.TextBox();
+            this.obj2 = new System.Windows.Forms.PictureBox();
+            this.obj3 = new System.Windows.Forms.PictureBox();
+            this.obj4 = new System.Windows.Forms.PictureBox();
+            this.level = new System.Windows.Forms.TextBox();
+            this.obj5 = new System.Windows.Forms.PictureBox();
+            this.obj6 = new System.Windows.Forms.PictureBox();
+            this.obj7 = new System.Windows.Forms.PictureBox();
+            this.obj8 = new System.Windows.Forms.PictureBox();
+            this.objtes = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgtop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objtes)).BeginInit();
             this.SuspendLayout();
             // 
             // Player
@@ -77,22 +87,23 @@
             this.back.TabIndex = 1;
             this.back.TabStop = false;
             // 
-            // mobil1
+            // obj1
             // 
-            this.mobil1.Location = new System.Drawing.Point(820, 360);
-            this.mobil1.Name = "mobil1";
-            this.mobil1.Size = new System.Drawing.Size(90, 60);
-            this.mobil1.TabIndex = 6;
-            this.mobil1.TabStop = false;
+            this.obj1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.obj1.Location = new System.Drawing.Point(820, 700);
+            this.obj1.Name = "obj1";
+            this.obj1.Size = new System.Drawing.Size(90, 60);
+            this.obj1.TabIndex = 6;
+            this.obj1.TabStop = false;
             // 
-            // pictureBox4
+            // bgtop
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Red;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(800, 55);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
+            this.bgtop.BackColor = System.Drawing.Color.Red;
+            this.bgtop.Location = new System.Drawing.Point(0, 0);
+            this.bgtop.Name = "bgtop";
+            this.bgtop.Size = new System.Drawing.Size(800, 55);
+            this.bgtop.TabIndex = 7;
+            this.bgtop.TabStop = false;
             // 
             // skor
             // 
@@ -120,51 +131,104 @@
             this.tulisannyawa.Size = new System.Drawing.Size(120, 34);
             this.tulisannyawa.TabIndex = 10;
             // 
-            // mobil2
+            // obj2
             // 
-            this.mobil2.Location = new System.Drawing.Point(-110, 260);
-            this.mobil2.Name = "mobil2";
-            this.mobil2.Size = new System.Drawing.Size(90, 60);
-            this.mobil2.TabIndex = 11;
-            this.mobil2.TabStop = false;
+            this.obj2.Location = new System.Drawing.Point(-110, 700);
+            this.obj2.Name = "obj2";
+            this.obj2.Size = new System.Drawing.Size(90, 60);
+            this.obj2.TabIndex = 11;
+            this.obj2.TabStop = false;
             // 
-            // mobil3
+            // obj3
             // 
-            this.mobil3.Location = new System.Drawing.Point(900, 170);
-            this.mobil3.Name = "mobil3";
-            this.mobil3.Size = new System.Drawing.Size(90, 60);
-            this.mobil3.TabIndex = 12;
-            this.mobil3.TabStop = false;
+            this.obj3.BackColor = System.Drawing.Color.Red;
+            this.obj3.Location = new System.Drawing.Point(900, 700);
+            this.obj3.Name = "obj3";
+            this.obj3.Size = new System.Drawing.Size(90, 60);
+            this.obj3.TabIndex = 12;
+            this.obj3.TabStop = false;
             // 
-            // mobil4
+            // obj4
             // 
-            this.mobil4.Location = new System.Drawing.Point(-110, 70);
-            this.mobil4.Name = "mobil4";
-            this.mobil4.Size = new System.Drawing.Size(90, 60);
-            this.mobil4.TabIndex = 13;
-            this.mobil4.TabStop = false;
+            this.obj4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.obj4.Location = new System.Drawing.Point(-110, 700);
+            this.obj4.Name = "obj4";
+            this.obj4.Size = new System.Drawing.Size(90, 60);
+            this.obj4.TabIndex = 13;
+            this.obj4.TabStop = false;
             // 
-            // buatnyoba
+            // level
             // 
-            this.buatnyoba.Location = new System.Drawing.Point(328, 14);
-            this.buatnyoba.Name = "buatnyoba";
-            this.buatnyoba.Size = new System.Drawing.Size(100, 22);
-            this.buatnyoba.TabIndex = 14;
+            this.level.Font = new System.Drawing.Font("8BIT WONDER", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level.Location = new System.Drawing.Point(301, 1);
+            this.level.Name = "level";
+            this.level.Size = new System.Drawing.Size(139, 24);
+            this.level.TabIndex = 14;
+            // 
+            // obj5
+            // 
+            this.obj5.BackColor = System.Drawing.Color.Yellow;
+            this.obj5.Location = new System.Drawing.Point(820, 700);
+            this.obj5.Name = "obj5";
+            this.obj5.Size = new System.Drawing.Size(90, 60);
+            this.obj5.TabIndex = 15;
+            this.obj5.TabStop = false;
+            // 
+            // obj6
+            // 
+            this.obj6.BackColor = System.Drawing.Color.Green;
+            this.obj6.Location = new System.Drawing.Point(-110, 700);
+            this.obj6.Name = "obj6";
+            this.obj6.Size = new System.Drawing.Size(90, 60);
+            this.obj6.TabIndex = 16;
+            this.obj6.TabStop = false;
+            // 
+            // obj7
+            // 
+            this.obj7.BackColor = System.Drawing.Color.Gray;
+            this.obj7.Location = new System.Drawing.Point(820, 700);
+            this.obj7.Name = "obj7";
+            this.obj7.Size = new System.Drawing.Size(90, 60);
+            this.obj7.TabIndex = 17;
+            this.obj7.TabStop = false;
+            // 
+            // obj8
+            // 
+            this.obj8.BackColor = System.Drawing.Color.DarkViolet;
+            this.obj8.Location = new System.Drawing.Point(-110, 700);
+            this.obj8.Name = "obj8";
+            this.obj8.Size = new System.Drawing.Size(90, 60);
+            this.obj8.TabIndex = 18;
+            this.obj8.TabStop = false;
+            // 
+            // objtes
+            // 
+            this.objtes.BackColor = System.Drawing.SystemColors.Control;
+            this.objtes.Location = new System.Drawing.Point(346, 700);
+            this.objtes.Name = "objtes";
+            this.objtes.Size = new System.Drawing.Size(90, 60);
+            this.objtes.TabIndex = 20;
+            this.objtes.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.buatnyoba);
-            this.Controls.Add(this.mobil4);
-            this.Controls.Add(this.mobil3);
-            this.Controls.Add(this.mobil2);
+            this.Controls.Add(this.objtes);
+            this.Controls.Add(this.obj8);
+            this.Controls.Add(this.obj7);
+            this.Controls.Add(this.obj6);
+            this.Controls.Add(this.obj5);
+            this.Controls.Add(this.level);
+            this.Controls.Add(this.obj4);
+            this.Controls.Add(this.obj3);
+            this.Controls.Add(this.obj2);
             this.Controls.Add(this.tulisannyawa);
             this.Controls.Add(this.nyawalive);
             this.Controls.Add(this.skor);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.mobil1);
+            this.Controls.Add(this.bgtop);
+            this.Controls.Add(this.obj1);
             this.Controls.Add(this.Player);
             this.Controls.Add(this.back);
             this.Enabled = false;
@@ -173,12 +237,17 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydownevent);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgtop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mobil4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objtes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,15 +258,20 @@
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Timer gametimer;
         private System.Windows.Forms.PictureBox back;
-        private System.Windows.Forms.PictureBox mobil1;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox obj1;
+        private System.Windows.Forms.PictureBox bgtop;
         private System.Windows.Forms.TextBox skor;
         private System.Windows.Forms.PictureBox nyawalive;
         private System.Windows.Forms.MaskedTextBox tulisannyawa;
-        private System.Windows.Forms.PictureBox mobil2;
-        private System.Windows.Forms.PictureBox mobil3;
-        private System.Windows.Forms.PictureBox mobil4;
-        private System.Windows.Forms.TextBox buatnyoba;
+        private System.Windows.Forms.PictureBox obj2;
+        private System.Windows.Forms.PictureBox obj3;
+        private System.Windows.Forms.PictureBox obj4;
+        private System.Windows.Forms.TextBox level;
+        private System.Windows.Forms.PictureBox obj5;
+        private System.Windows.Forms.PictureBox obj6;
+        private System.Windows.Forms.PictureBox obj7;
+        private System.Windows.Forms.PictureBox obj8;
+        private System.Windows.Forms.PictureBox objtes;
     }
 }
 
