@@ -159,10 +159,10 @@
             // 
             // level
             // 
-            this.level.Font = new System.Drawing.Font("8BIT WONDER", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.level.Location = new System.Drawing.Point(301, 1);
+            this.level.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level.Location = new System.Drawing.Point(263, 0);
             this.level.Name = "level";
-            this.level.Size = new System.Drawing.Size(139, 24);
+            this.level.Size = new System.Drawing.Size(207, 34);
             this.level.TabIndex = 14;
             // 
             // obj5
