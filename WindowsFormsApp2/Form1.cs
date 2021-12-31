@@ -10,10 +10,6 @@ namespace WindowsFormsApp2
         int horizontal = 0;
         int hitungSkor = 0;
         int nyawa = 3;
-        Random rand = new Random();
-        List<string> listObj = new List<string>();
-        List<string> listObs = new List<string>();
-        List<int> listKecepatan = new List<int>();
         int pilih;
         int kecepatan = 20;
         int tinggi1 = 57;
@@ -25,6 +21,10 @@ namespace WindowsFormsApp2
         int hitunglevel = 1;
         int awal = 0;
         int tabrak = 0;
+        int timerMati = 0; Random rand = new Random();
+        List<string> listObj = new List<string>();
+        List<string> listObs = new List<string>();
+        List<int> listKecepatan = new List<int>();
         public Form1()
         {
             InitializeComponent();
@@ -52,10 +52,12 @@ namespace WindowsFormsApp2
             if (e.KeyCode == Keys.Up && Player.Top > 300)
             {
                 vertikal = -80;
+                timerMati = 0;
             }
             else if (e.KeyCode == Keys.Up && Player.Top < 300)
             {
                 hitungSkor++;
+                timerMati = 0;
                 if (awal == 0)
                 {
                     pilih = rand.Next(0, listObj.Count - 1);
@@ -68,7 +70,7 @@ namespace WindowsFormsApp2
                 {
                     listObj.Add(listObs[0]);
                     listObs.RemoveAt(0);
-                    pilih = rand.Next(0, listObj.Count); //kalau listobs eror
+                    pilih = rand.Next(0, listObj.Count);
                     listObs.Add(listObj[pilih]);
                     listObj.RemoveAt(pilih);
                     listKecepatan.RemoveAt(0);
@@ -84,18 +86,22 @@ namespace WindowsFormsApp2
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
                 vertikal = 80;
+                timerMati = 0;
             }
             if (e.KeyCode == Keys.Left && Player.Left > 60)
             {
                 horizontal = -60;
+                timerMati = 0;
             }
             if (e.KeyCode == Keys.Right && Player.Left <= 480)
             {
                 horizontal = 60;
+                timerMati = 0;
             }
         }
         private void gametimerevent(object sender, EventArgs e)
         {
+            timerMati++;
             if (Player.Bounds.IntersectsWith(obj1.Bounds) ||
                 Player.Bounds.IntersectsWith(obj2.Bounds) ||
                 Player.Bounds.IntersectsWith(obj3.Bounds) ||
@@ -110,12 +116,17 @@ namespace WindowsFormsApp2
                 //reset posisi player
                 Player.Top = 365;
                 Player.Left = 270;
-                tabrak = 100;
+                tabrak = 200;
             }
             if (awal != 0)
                 tambah = 81;
-            if (nyawa == 0)
+            if (nyawa == 0 || timerMati > 200)
+            {
+                nyawalive.Left += 135;
+                gameover();
                 gametimer.Stop();
+                
+            }
             skor.Text = "SCORE : " + hitungSkor.ToString();
 
             //0
@@ -348,19 +359,19 @@ namespace WindowsFormsApp2
             else { }
 
 
-            if (obj1.Left < 0)
+            if (obj1.Left < -200)
                 obj1.Left = 800;
             if (obj2.Left > 900)
                 obj2.Left = -110;
-            if (obj3.Left < 0)
+            if (obj3.Left < -200)
                 obj3.Left = 800;
             if (obj4.Left > 900)
                 obj4.Left = -110;
-            if (obj5.Left < 0)
+            if (obj5.Left < -200)
                 obj5.Left = 800;
             if (obj6.Left > 900)
                 obj6.Left = -110;
-            if (obj7.Left < 0)
+            if (obj7.Left < -200)
                 obj7.Left = 800;
             if (obj8.Left > 900)
                 obj8.Left = -110;
@@ -370,8 +381,14 @@ namespace WindowsFormsApp2
             vertikal = 0;
             horizontal = 0;
 
-            //ini buat nyoba
             level.Text = "Level : " + hitunglevel;
+        }
+
+        private void gameover()
+        {
+            boxgameover.Left = 129;
+            skorakhir.Text = "Score = " + hitungSkor;
+            skorakhir.Left = 188;
         }
     }
 }
