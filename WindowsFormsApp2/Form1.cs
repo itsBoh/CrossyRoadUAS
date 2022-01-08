@@ -21,7 +21,8 @@ namespace WindowsFormsApp2
         int hitunglevel = 1;
         int awal = 0;
         int tabrak = 0;
-        int timerMati = 0; Random rand = new Random();
+        int timerMati = 0; 
+        Random rand = new Random();
         List<string> listObj = new List<string>();
         List<string> listObs = new List<string>();
         List<int> listKecepatan = new List<int>();
@@ -389,6 +390,11 @@ namespace WindowsFormsApp2
             boxgameover.Left = 129;
             skorakhir.Text = "Score = " + hitungSkor;
             skorakhir.Left = 188;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

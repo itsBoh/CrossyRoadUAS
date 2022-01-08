@@ -33,7 +33,6 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.gametimer = new System.Windows.Forms.Timer(this.components);
             this.obj1 = new System.Windows.Forms.PictureBox();
-            this.skor = new System.Windows.Forms.TextBox();
             this.nyawalive = new System.Windows.Forms.PictureBox();
             this.tulisannyawa = new System.Windows.Forms.MaskedTextBox();
             this.obj2 = new System.Windows.Forms.PictureBox();
@@ -48,6 +47,7 @@
             this.nyawahitam = new System.Windows.Forms.PictureBox();
             this.boxgameover = new System.Windows.Forms.PictureBox();
             this.skorakhir = new System.Windows.Forms.TextBox();
+            this.skor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nyawalive)).BeginInit();
@@ -93,17 +93,6 @@
             this.obj1.TabIndex = 6;
             this.obj1.TabStop = false;
             // 
-            // skor
-            // 
-            this.skor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.skor.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skor.ForeColor = System.Drawing.Color.Transparent;
-            this.skor.Location = new System.Drawing.Point(0, 0);
-            this.skor.Margin = new System.Windows.Forms.Padding(2);
-            this.skor.Name = "skor";
-            this.skor.Size = new System.Drawing.Size(194, 22);
-            this.skor.TabIndex = 8;
-            // 
             // nyawalive
             // 
             this.nyawalive.BackColor = System.Drawing.Color.Transparent;
@@ -120,6 +109,7 @@
             // 
             this.tulisannyawa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tulisannyawa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tulisannyawa.Enabled = false;
             this.tulisannyawa.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tulisannyawa.Location = new System.Drawing.Point(370, 0);
             this.tulisannyawa.Margin = new System.Windows.Forms.Padding(2);
@@ -168,6 +158,7 @@
             // level
             // 
             this.level.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.level.Enabled = false;
             this.level.Font = new System.Drawing.Font("8BIT WONDER", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.level.Location = new System.Drawing.Point(197, 0);
             this.level.Margin = new System.Windows.Forms.Padding(2);
@@ -207,7 +198,7 @@
             this.obj7.Location = new System.Drawing.Point(615, 569);
             this.obj7.Margin = new System.Windows.Forms.Padding(0);
             this.obj7.Name = "obj7";
-            this.obj7.Size = new System.Drawing.Size(167, 67);
+            this.obj7.Size = new System.Drawing.Size(156, 61);
             this.obj7.TabIndex = 17;
             this.obj7.TabStop = false;
             // 
@@ -219,7 +210,7 @@
             this.obj8.Location = new System.Drawing.Point(-82, 569);
             this.obj8.Margin = new System.Windows.Forms.Padding(0);
             this.obj8.Name = "obj8";
-            this.obj8.Size = new System.Drawing.Size(167, 67);
+            this.obj8.Size = new System.Drawing.Size(156, 61);
             this.obj8.TabIndex = 18;
             this.obj8.TabStop = false;
             // 
@@ -247,6 +238,7 @@
             // 
             // boxgameover
             // 
+            this.boxgameover.Enabled = false;
             this.boxgameover.Location = new System.Drawing.Point(900, 123);
             this.boxgameover.Margin = new System.Windows.Forms.Padding(0);
             this.boxgameover.Name = "boxgameover";
@@ -256,11 +248,24 @@
             // 
             // skorakhir
             // 
+            this.skorakhir.Enabled = false;
             this.skorakhir.Font = new System.Drawing.Font("8BIT WONDER", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.skorakhir.Location = new System.Drawing.Point(700, 140);
             this.skorakhir.Name = "skorakhir";
             this.skorakhir.Size = new System.Drawing.Size(223, 31);
             this.skorakhir.TabIndex = 23;
+            // 
+            // skor
+            // 
+            this.skor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.skor.Enabled = false;
+            this.skor.Font = new System.Drawing.Font("8BIT WONDER", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skor.ForeColor = System.Drawing.Color.Transparent;
+            this.skor.Location = new System.Drawing.Point(0, 0);
+            this.skor.Margin = new System.Windows.Forms.Padding(2);
+            this.skor.Name = "skor";
+            this.skor.Size = new System.Drawing.Size(194, 22);
+            this.skor.TabIndex = 8;
             // 
             // Form1
             // 
@@ -287,10 +292,13 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.nyawahitam);
             this.DoubleBuffered = true;
-            this.Enabled = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Crossy Road";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydownevent);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).EndInit();
@@ -315,7 +323,6 @@
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Timer gametimer;
         private System.Windows.Forms.PictureBox obj1;
-        private System.Windows.Forms.TextBox skor;
         private System.Windows.Forms.PictureBox nyawalive;
         private System.Windows.Forms.MaskedTextBox tulisannyawa;
         private System.Windows.Forms.PictureBox obj2;
@@ -330,6 +337,7 @@
         private System.Windows.Forms.PictureBox nyawahitam;
         private System.Windows.Forms.PictureBox boxgameover;
         private System.Windows.Forms.TextBox skorakhir;
+        private System.Windows.Forms.TextBox skor;
     }
 }
 
