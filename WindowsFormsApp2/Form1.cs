@@ -18,7 +18,8 @@ namespace WindowsFormsApp2
         int tinggi4 = 301;
         int hilang = 500;
         int hitunglevel = 1;
-        int timerMati = 0; 
+        int timerMati = 0;
+        string tes;
         Random rand = new Random();
         List<string> listObj = new List<string>();
         List<string> listObs = new List<string>();
@@ -83,6 +84,7 @@ namespace WindowsFormsApp2
                     listObj.Add(listObs[i]);
                     listObs.RemoveAt(i);
                 }
+                listKecepatan.Clear();
                 for (int i = 1; i <= 4; i++)
                 {
                     pilih = rand.Next(0, listObj.Count);
@@ -93,7 +95,6 @@ namespace WindowsFormsApp2
                 kecepatan += 5;
                 hitunglevel++;
             }
-
             timerMati++;
             if (Player.Bounds.IntersectsWith(obj1.Bounds) ||
                 Player.Bounds.IntersectsWith(obj2.Bounds) ||
