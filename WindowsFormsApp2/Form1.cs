@@ -5,31 +5,31 @@ using System.Windows.Forms;
 namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
-    {
-        int vertikal = 0;
-        int horizontal = 0;
-        int hitungSkor = 0;
-        int nyawa = 3;
-        int pilih;
-        int kecepatan = 20;
-        int tinggi1 = 57;
-        int tinggi2 = 138;
-        int tinggi3 = 219;
-        int tinggi4 = 301;
-        int tambah = 0;
-        int hilang = 500;
-        int hitunglevel = 1;
-        int awal = 0;
-        int tabrak = 0;
-        int timerMati = 0; 
-        Random rand = new Random();
-        List<string> listObj = new List<string>();
-        List<string> listObs = new List<string>();
-        List<int> listKecepatan = new List<int>();
+    {   
+        //declare variable
+        int vertikal = 0; //pergerakan naik turun
+        int horizontal = 0; //pergerakan ke samping
+        int hitungSkor = 0; //score
+        int nyawa = 3; 
+        int pilih; //remove obstacle
+        int kecepatan = 10; //kec.awal obstacle
+        int tinggi1 = 57; //obstacle paling atas
+        int tinggi2 = 138; //obstacle kedua dr atas
+        int tinggi3 = 219; //obstacle kedua dr bwh
+        int tinggi4 = 301; //obstacle plg bwh
+        int hilang = 500; //obstacle yg ga kepake (di luar map)
+        int hitunglevel = 1; //level
+        int timerMati = 0; //game over
+        Random rand = new Random(); //random obstacle dan kecepatan
+        List<string> listObj = new List<string>(); //list objek (kendaraan)
+        List<string> listObs = new List<string>(); //list obstacle (rintangan)
+        List<int> listKecepatan = new List<int>(); //list kecepatan masing-masing obstacle
         public Form1()
         {
             InitializeComponent();
-            tulisannyawa.Text = "LIFE";
+            tulisannyawa.Text = "LIFE"; //text box pojok kanan atas
+
+            // memasukkan 8 objek ke dalam list objek
             listObj.Add("obj1");
             listObj.Add("obj2");
             listObj.Add("obj3");
@@ -38,62 +38,38 @@ namespace WindowsFormsApp2
             listObj.Add("obj6");
             listObj.Add("obj7");
             listObj.Add("obj8");
-
+            
+            //memilih objek yang muncul sebagai obstacle
             for (int i = 1; i <= 4; i++)
             {
-                pilih = rand.Next(0, listObj.Count);
-                listObs.Add(listObj[pilih]);
-                listObj.RemoveAt(pilih);
-                listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
+                pilih = rand.Next(0, listObj.Count); //variable pilih objek
+                listObs.Add(listObj[pilih]); //memasukkan objek yang terpilih dari random ke dalam list obstacle
+                listObj.RemoveAt(pilih); //menghapus objek yang sudah terpilih dari list objek agar tidak muncul lebih dari sekali dalam satu level
+                listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1)); 
             }
-            listObs.Add("");
         }
         private void keydownevent(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up && Player.Top > 300)
+            //pergerakan ke atas
+            if (e.KeyCode == Keys.Up)
             {
                 vertikal = -80;
-                timerMati = 0;
-            }
-            else if (e.KeyCode == Keys.Up && Player.Top < 300)
-            {
                 hitungSkor++;
-                timerMati = 0;
-                if (awal == 0)
-                {
-                    pilih = rand.Next(0, listObj.Count - 1);
-                    listObs.Add(listObj[pilih]);
-                    listObj.RemoveAt(pilih);
-                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
-                    awal = 1;
-                }
-                else
-                {
-                    listObj.Add(listObs[0]);
-                    listObs.RemoveAt(0);
-                    pilih = rand.Next(0, listObj.Count);
-                    listObs.Add(listObj[pilih]);
-                    listObj.RemoveAt(pilih);
-                    listKecepatan.RemoveAt(0);
-                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan));
-                }
-                if (hitungSkor % 4 == 0 && hitungSkor > 1)
-                {
-                    kecepatan += 2;
-                    hitunglevel++;
-                }
-                tabrak = 0;
+                timerMati = 0; 
             }
+            //pergerakan ke bawah
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
                 vertikal = 80;
                 timerMati = 0;
             }
+            //pergerakan ke kiri
             if (e.KeyCode == Keys.Left && Player.Left > 60)
             {
                 horizontal = -60;
                 timerMati = 0;
             }
+            //pergerakan ke kanan
             if (e.KeyCode == Keys.Right && Player.Left <= 480)
             {
                 horizontal = 60;
@@ -102,7 +78,30 @@ namespace WindowsFormsApp2
         }
         private void gametimerevent(object sender, EventArgs e)
         {
-            timerMati++;
+            if (Player.Top < 40) //kalau posisi player sudah melewati obstacle plg atas
+            {
+                Player.Top = 365; //reset posisi player
+                Player.Left = 270; //reset posisi player
+                kecepatan += 1;
+                hitunglevel++;
+                //reset list obstacle
+                for (int i = listObs.Count-1; i >= 0; i--)
+                {
+                    listObj.Add(listObs[i]);
+                    listObs.RemoveAt(i);
+                }
+                listKecepatan.Clear();
+                for (int i = 1; i <= 4; i++)
+                {
+                    pilih = rand.Next(0, listObj.Count);
+                    listObs.Add(listObj[pilih]);
+                    listObj.RemoveAt(pilih);
+                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
+                }
+            }
+            timerMati++; 
+
+            //jika player bertabrakan dengan objek
             if (Player.Bounds.IntersectsWith(obj1.Bounds) ||
                 Player.Bounds.IntersectsWith(obj2.Bounds) ||
                 Player.Bounds.IntersectsWith(obj3.Bounds) ||
@@ -110,79 +109,78 @@ namespace WindowsFormsApp2
                 Player.Bounds.IntersectsWith(obj5.Bounds) ||
                 Player.Bounds.IntersectsWith(obj6.Bounds) ||
                 Player.Bounds.IntersectsWith(obj7.Bounds) ||
-                Player.Bounds.IntersectsWith(obj8.Bounds))
+                Player.Bounds.IntersectsWith(obj8.Bounds) ||
+                timerMati > 200)
             {
-                nyawa--;
+                nyawa--; //nyawa berkurang 1
                 nyawalive.Left += 45;
-                //reset posisi player
-                Player.Top = 365;
-                Player.Left = 270;
-                tabrak = 200;
+                Player.Top = 365; //reset posisi player
+                Player.Left = 270; //reset posisi player
+                timerMati = 0;
             }
-            if (awal != 0)
-                tambah = 81;
-            if (nyawa == 0 || timerMati > 200)
+            //game over
+            if (nyawa == 0)
             {
                 nyawalive.Left += 135;
                 gameover();
                 gametimer.Stop();
-                
             }
-            skor.Text = "SCORE : " + hitungSkor.ToString();
+            skor.Text = "SCORE : " + hitungSkor.ToString(); //text box game over
 
+            //objek ganjil keluar dari kanan menuju ke kiri, objek genap sebaliknya
             //0
             if (listObs[0] == "obj1")
             {
-                obj1.Top = tinggi4 + tambah + tabrak;
+                obj1.Top = tinggi4;
                 obj1.Left -= listKecepatan[0];
             }
             else
                 obj1.Top = hilang;
             if (listObs[0] == "obj2")
             {
-                obj2.Top = tinggi4 + tambah + tabrak;
+                obj2.Top = tinggi4;
                 obj2.Left += listKecepatan[0];
             }
             else
                 obj2.Top = hilang;
             if (listObs[0] == "obj3")
             {
-                obj3.Top = tinggi4 + tambah + tabrak;
+                obj3.Top = tinggi4;
                 obj3.Left -= listKecepatan[0];
             }
             else
                 obj3.Top = hilang;
             if (listObs[0] == "obj4")
             {
-                obj4.Top = tinggi4 + tambah + tabrak;
+                obj4.Top = tinggi4;
                 obj4.Left += listKecepatan[0];
             }
             else
                 obj4.Top = hilang;
             if (listObs[0] == "obj5")
             {
-                obj5.Top = tinggi4 + tambah + tabrak;
+                obj5.Top = tinggi4;
                 obj5.Left -= listKecepatan[0];
             }
             else
                 obj5.Top = hilang;
             if (listObs[0] == "obj6")
             {
-                obj6.Top = tinggi4 + tambah + tabrak;
+                obj6.Top = tinggi4;
                 obj6.Left += listKecepatan[0];
             }
             else
                 obj6.Top = hilang;
             if (listObs[0] == "obj7")
             {
-                obj7.Top = tinggi4 + tambah + tabrak;
+                obj7.Top = tinggi4;
                 obj7.Left -= listKecepatan[0];
             }
             else
                 obj7.Top = hilang;
             if (listObs[0] == "obj8")
             {
-                obj8.Top = tinggi4 + tambah + tabrak;
+                obj8.Top = tinggi4;
                 obj8.Left += listKecepatan[0];
             }
             else
@@ -192,42 +190,42 @@ namespace WindowsFormsApp2
             //1
             if (listObs[1] == "obj1")
             {
-                obj1.Top = tinggi3 + tambah;
+                obj1.Top = tinggi3;
                 obj1.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj2")
             {
-                obj2.Top = tinggi3 + tambah;
+                obj2.Top = tinggi3;
                 obj2.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj3")
             {
-                obj3.Top = tinggi3 + tambah;
+                obj3.Top = tinggi3;
                 obj3.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj4")
             {
-                obj4.Top = tinggi3 + tambah;
+                obj4.Top = tinggi3;
                 obj4.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj5")
             {
-                obj5.Top = tinggi3 + tambah;
+                obj5.Top = tinggi3;
                 obj5.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj6")
             {
-                obj6.Top = tinggi3 + tambah;
+                obj6.Top = tinggi3;
                 obj6.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj7")
             {
-                obj7.Top = tinggi3 + tambah;
+                obj7.Top = tinggi3;
                 obj7.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj8")
             {
-                obj8.Top = tinggi3 + tambah;
+                obj8.Top = tinggi3;
                 obj8.Left += listKecepatan[1];
             }
 
@@ -235,42 +233,42 @@ namespace WindowsFormsApp2
             //2
             if (listObs[2] == "obj1")
             {
-                obj1.Top = tinggi2 + tambah;
+                obj1.Top = tinggi2;
                 obj1.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj2")
             {
-                obj2.Top = tinggi2 + tambah;
+                obj2.Top = tinggi2;
                 obj2.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj3")
             {
-                obj3.Top = tinggi2 + tambah;
+                obj3.Top = tinggi2;
                 obj3.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj4")
             {
-                obj4.Top = tinggi2 + tambah;
+                obj4.Top = tinggi2;
                 obj4.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj5")
             {
-                obj5.Top = tinggi2 + tambah;
+                obj5.Top = tinggi2;
                 obj5.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj6")
             {
-                obj6.Top = tinggi2 + tambah;
+                obj6.Top = tinggi2;
                 obj6.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj7")
             {
-                obj7.Top = tinggi2 + tambah;
+                obj7.Top = tinggi2;
                 obj7.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj8")
             {
-                obj8.Top = tinggi2 + tambah;
+                obj8.Top = tinggi2;
                 obj8.Left += listKecepatan[2];
             }
 
@@ -278,88 +276,46 @@ namespace WindowsFormsApp2
             //3
             if (listObs[3] == "obj1")
             {
-                obj1.Top = tinggi1 + tambah;
+                obj1.Top = tinggi1;
                 obj1.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj2")
             {
-                obj2.Top = tinggi1 + tambah;
+                obj2.Top = tinggi1;
                 obj2.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj3")
             {
-                obj3.Top = tinggi1 + tambah;
+                obj3.Top = tinggi1;
                 obj3.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj4")
             {
-                obj4.Top = tinggi1 + tambah;
+                obj4.Top = tinggi1;
                 obj4.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj5")
             {
-                obj5.Top = tinggi1 + tambah;
+                obj5.Top = tinggi1;
                 obj5.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj6")
             {
-                obj6.Top = tinggi1 + tambah;
+                obj6.Top = tinggi1;
                 obj6.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj7")
             {
-                obj7.Top = tinggi1 + tambah;
+                obj7.Top = tinggi1;
                 obj7.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj8")
             {
-                obj8.Top = tinggi1 + tambah;
-                obj8.Left += listKecepatan[3];
-            }
-            //4
-            if (listObs[4] == "obj1")
-            {
-                obj1.Top = tinggi1;
-                obj1.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj2")
-            {
-                obj2.Top = tinggi1;
-                obj2.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj3")
-            {
-                obj3.Top = tinggi1;
-                obj3.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj4")
-            {
-                obj4.Top = tinggi1;
-                obj4.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj5")
-            {
-                obj5.Top = tinggi1;
-                obj5.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj6")
-            {
-                obj6.Top = tinggi1;
-                obj6.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj7")
-            {
-                obj7.Top = tinggi1;
-                obj7.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj8")
-            {
                 obj8.Top = tinggi1;
                 obj8.Left += listKecepatan[3];
             }
-            else { }
 
-
+            //reset posisi obstacle
             if (obj1.Left < -200)
                 obj1.Left = 800;
             if (obj2.Left > 900)
@@ -381,20 +337,21 @@ namespace WindowsFormsApp2
             Player.Left += horizontal;
             vertikal = 0;
             horizontal = 0;
-
             level.Text = "Level : " + hitunglevel;
         }
 
+        //text box game over
         private void gameover()
         {
-            boxgameover.Left = 129;
+            boxgameover.Left = 129; //posisi text box game over
             skorakhir.Text = "Score = " + hitungSkor;
-            skorakhir.Left = 188;
+            skorakhir.Left = 188; //posisi score akhir
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
+
     }
 }
