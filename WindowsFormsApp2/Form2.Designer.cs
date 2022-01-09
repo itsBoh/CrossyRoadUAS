@@ -33,7 +33,7 @@
             // 
             // buttonlogin
             // 
-            this.buttonlogin.Location = new System.Drawing.Point(144, 99);
+            this.buttonlogin.Location = new System.Drawing.Point(254, 206);
             this.buttonlogin.Name = "buttonlogin";
             this.buttonlogin.Size = new System.Drawing.Size(75, 23);
             this.buttonlogin.TabIndex = 0;
@@ -47,8 +47,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 449);
             this.Controls.Add(this.buttonlogin);
+            this.MaximizeBox = false;
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Nyenyene";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
 

@@ -11,7 +11,7 @@ namespace WindowsFormsApp2
         int hitungSkor = 0;
         int nyawa = 3;
         int pilih;
-        int kecepatan = 20;
+        int kecepatan = 10;
         int tinggi1 = 57;
         int tinggi2 = 138;
         int tinggi3 = 219;
@@ -50,58 +50,54 @@ namespace WindowsFormsApp2
         }
         private void keydownevent(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up && Player.Top > 300)
+            if (e.KeyCode == Keys.Up)
             {
                 vertikal = -80;
-                timerMati = 0;
-            }
-            else if (e.KeyCode == Keys.Up && Player.Top < 300)
-            {
                 hitungSkor++;
                 timerMati = 0;
-                if (awal == 0)
-                {
-                    pilih = rand.Next(0, listObj.Count - 1);
-                    listObs.Add(listObj[pilih]);
-                    listObj.RemoveAt(pilih);
-                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
-                    awal = 1;
-                }
-                else
-                {
-                    listObj.Add(listObs[0]);
-                    listObs.RemoveAt(0);
-                    pilih = rand.Next(0, listObj.Count);
-                    listObs.Add(listObj[pilih]);
-                    listObj.RemoveAt(pilih);
-                    listKecepatan.RemoveAt(0);
-                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan));
-                }
-                if (hitungSkor % 4 == 0 && hitungSkor > 1)
-                {
-                    kecepatan += 2;
-                    hitunglevel++;
-                }
                 tabrak = 0;
             }
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
+                timerMati = 0;
                 vertikal = 80;
                 timerMati = 0;
             }
             if (e.KeyCode == Keys.Left && Player.Left > 60)
             {
+                timerMati = 0;
                 horizontal = -60;
                 timerMati = 0;
             }
             if (e.KeyCode == Keys.Right && Player.Left <= 480)
             {
+                timerMati = 0;
                 horizontal = 60;
                 timerMati = 0;
             }
         }
         private void gametimerevent(object sender, EventArgs e)
         {
+            if (Player.Top < 40)
+            {
+                Player.Top = 365;
+                Player.Left = 270;
+                for (int i = listObs.Count - 1; i >= 0; i--)
+                {
+                    listObj.Add(listObs[i]);
+                    listObs.RemoveAt(i);
+                }
+                for (int i = 1; i <= 4; i++)
+                {
+                    pilih = rand.Next(0, listObj.Count);
+                    listObs.Add(listObj[pilih]);
+                    listObj.RemoveAt(pilih);
+                    listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
+                }
+                kecepatan += 5;
+                hitunglevel++;
+            }
+
             timerMati++;
             if (Player.Bounds.IntersectsWith(obj1.Bounds) ||
                 Player.Bounds.IntersectsWith(obj2.Bounds) ||
@@ -129,7 +125,6 @@ namespace WindowsFormsApp2
                 
             }
             skor.Text = "SCORE : " + hitungSkor.ToString();
-
             //0
             if (listObs[0] == "obj1")
             {
@@ -187,8 +182,6 @@ namespace WindowsFormsApp2
             }
             else
                 obj8.Top = hilang;
-
-
             //1
             if (listObs[1] == "obj1")
             {
@@ -230,8 +223,6 @@ namespace WindowsFormsApp2
                 obj8.Top = tinggi3 + tambah;
                 obj8.Left += listKecepatan[1];
             }
-
-
             //2
             if (listObs[2] == "obj1")
             {
@@ -273,8 +264,6 @@ namespace WindowsFormsApp2
                 obj8.Top = tinggi2 + tambah;
                 obj8.Left += listKecepatan[2];
             }
-
-
             //3
             if (listObs[3] == "obj1")
             {
@@ -316,49 +305,6 @@ namespace WindowsFormsApp2
                 obj8.Top = tinggi1 + tambah;
                 obj8.Left += listKecepatan[3];
             }
-            //4
-            if (listObs[4] == "obj1")
-            {
-                obj1.Top = tinggi1;
-                obj1.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj2")
-            {
-                obj2.Top = tinggi1;
-                obj2.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj3")
-            {
-                obj3.Top = tinggi1;
-                obj3.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj4")
-            {
-                obj4.Top = tinggi1;
-                obj4.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj5")
-            {
-                obj5.Top = tinggi1;
-                obj5.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj6")
-            {
-                obj6.Top = tinggi1;
-                obj6.Left += listKecepatan[3];
-            }
-            else if (listObs[4] == "obj7")
-            {
-                obj7.Top = tinggi1;
-                obj7.Left -= listKecepatan[3];
-            }
-            else if (listObs[4] == "obj8")
-            {
-                obj8.Top = tinggi1;
-                obj8.Left += listKecepatan[3];
-            }
-            else { }
-
 
             if (obj1.Left < -200)
                 obj1.Left = 800;
@@ -381,7 +327,6 @@ namespace WindowsFormsApp2
             Player.Left += horizontal;
             vertikal = 0;
             horizontal = 0;
-
             level.Text = "Level : " + hitunglevel;
         }
 
