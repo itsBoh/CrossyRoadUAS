@@ -16,11 +16,8 @@ namespace WindowsFormsApp2
         int tinggi2 = 138;
         int tinggi3 = 219;
         int tinggi4 = 301;
-        int tambah = 0;
         int hilang = 500;
         int hitunglevel = 1;
-        int awal = 0;
-        int tabrak = 0;
         int timerMati = 0; 
         Random rand = new Random();
         List<string> listObj = new List<string>();
@@ -55,7 +52,6 @@ namespace WindowsFormsApp2
                 vertikal = -80;
                 hitungSkor++;
                 timerMati = 0;
-                tabrak = 0;
             }
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
@@ -113,10 +109,7 @@ namespace WindowsFormsApp2
                 //reset posisi player
                 Player.Top = 365;
                 Player.Left = 270;
-                tabrak = 200;
             }
-            if (awal != 0)
-                tambah = 81;
             if (nyawa == 0 || timerMati > 200)
             {
                 nyawalive.Left += 135;
@@ -128,56 +121,56 @@ namespace WindowsFormsApp2
             //0
             if (listObs[0] == "obj1")
             {
-                obj1.Top = tinggi4 + tambah + tabrak;
+                obj1.Top = tinggi4;
                 obj1.Left -= listKecepatan[0];
             }
             else
                 obj1.Top = hilang;
             if (listObs[0] == "obj2")
             {
-                obj2.Top = tinggi4 + tambah + tabrak;
+                obj2.Top = tinggi4;
                 obj2.Left += listKecepatan[0];
             }
             else
                 obj2.Top = hilang;
             if (listObs[0] == "obj3")
             {
-                obj3.Top = tinggi4 + tambah + tabrak;
+                obj3.Top = tinggi4;
                 obj3.Left -= listKecepatan[0];
             }
             else
                 obj3.Top = hilang;
             if (listObs[0] == "obj4")
             {
-                obj4.Top = tinggi4 + tambah + tabrak;
+                obj4.Top = tinggi4;
                 obj4.Left += listKecepatan[0];
             }
             else
                 obj4.Top = hilang;
             if (listObs[0] == "obj5")
             {
-                obj5.Top = tinggi4 + tambah + tabrak;
+                obj5.Top = tinggi4;
                 obj5.Left -= listKecepatan[0];
             }
             else
                 obj5.Top = hilang;
             if (listObs[0] == "obj6")
             {
-                obj6.Top = tinggi4 + tambah + tabrak;
+                obj6.Top = tinggi4;
                 obj6.Left += listKecepatan[0];
             }
             else
                 obj6.Top = hilang;
             if (listObs[0] == "obj7")
             {
-                obj7.Top = tinggi4 + tambah + tabrak;
+                obj7.Top = tinggi4;
                 obj7.Left -= listKecepatan[0];
             }
             else
                 obj7.Top = hilang;
             if (listObs[0] == "obj8")
             {
-                obj8.Top = tinggi4 + tambah + tabrak;
+                obj8.Top = tinggi4;
                 obj8.Left += listKecepatan[0];
             }
             else
@@ -185,124 +178,124 @@ namespace WindowsFormsApp2
             //1
             if (listObs[1] == "obj1")
             {
-                obj1.Top = tinggi3 + tambah;
+                obj1.Top = tinggi3;
                 obj1.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj2")
             {
-                obj2.Top = tinggi3 + tambah;
+                obj2.Top = tinggi3;
                 obj2.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj3")
             {
-                obj3.Top = tinggi3 + tambah;
+                obj3.Top = tinggi3;
                 obj3.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj4")
             {
-                obj4.Top = tinggi3 + tambah;
+                obj4.Top = tinggi3;
                 obj4.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj5")
             {
-                obj5.Top = tinggi3 + tambah;
+                obj5.Top = tinggi3;
                 obj5.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj6")
             {
-                obj6.Top = tinggi3 + tambah;
+                obj6.Top = tinggi3;
                 obj6.Left += listKecepatan[1];
             }
             else if (listObs[1] == "obj7")
             {
-                obj7.Top = tinggi3 + tambah;
+                obj7.Top = tinggi3;
                 obj7.Left -= listKecepatan[1];
             }
             else if (listObs[1] == "obj8")
             {
-                obj8.Top = tinggi3 + tambah;
+                obj8.Top = tinggi3;
                 obj8.Left += listKecepatan[1];
             }
             //2
             if (listObs[2] == "obj1")
             {
-                obj1.Top = tinggi2 + tambah;
+                obj1.Top = tinggi2;
                 obj1.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj2")
             {
-                obj2.Top = tinggi2 + tambah;
+                obj2.Top = tinggi2;
                 obj2.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj3")
             {
-                obj3.Top = tinggi2 + tambah;
+                obj3.Top = tinggi2;
                 obj3.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj4")
             {
-                obj4.Top = tinggi2 + tambah;
+                obj4.Top = tinggi2;
                 obj4.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj5")
             {
-                obj5.Top = tinggi2 + tambah;
+                obj5.Top = tinggi2;
                 obj5.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj6")
             {
-                obj6.Top = tinggi2 + tambah;
+                obj6.Top = tinggi2;
                 obj6.Left += listKecepatan[2];
             }
             else if (listObs[2] == "obj7")
             {
-                obj7.Top = tinggi2 + tambah;
+                obj7.Top = tinggi2;
                 obj7.Left -= listKecepatan[2];
             }
             else if (listObs[2] == "obj8")
             {
-                obj8.Top = tinggi2 + tambah;
+                obj8.Top = tinggi2;
                 obj8.Left += listKecepatan[2];
             }
             //3
             if (listObs[3] == "obj1")
             {
-                obj1.Top = tinggi1 + tambah;
+                obj1.Top = tinggi1;
                 obj1.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj2")
             {
-                obj2.Top = tinggi1 + tambah;
+                obj2.Top = tinggi1;
                 obj2.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj3")
             {
-                obj3.Top = tinggi1 + tambah;
+                obj3.Top = tinggi1;
                 obj3.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj4")
             {
-                obj4.Top = tinggi1 + tambah;
+                obj4.Top = tinggi1;
                 obj4.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj5")
             {
-                obj5.Top = tinggi1 + tambah;
+                obj5.Top = tinggi1;
                 obj5.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj6")
             {
-                obj6.Top = tinggi1 + tambah;
+                obj6.Top = tinggi1;
                 obj6.Left += listKecepatan[3];
             }
             else if (listObs[3] == "obj7")
             {
-                obj7.Top = tinggi1 + tambah;
+                obj7.Top = tinggi1;
                 obj7.Left -= listKecepatan[3];
             }
             else if (listObs[3] == "obj8")
             {
-                obj8.Top = tinggi1 + tambah;
+                obj8.Top = tinggi1;
                 obj8.Left += listKecepatan[3];
             }
 
