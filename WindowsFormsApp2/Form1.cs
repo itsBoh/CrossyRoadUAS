@@ -10,6 +10,7 @@ namespace WindowsFormsApp2
         int vertikal = 0; //pergerakan naik turun
         int horizontal = 0; //pergerakan ke samping
         int hitungSkor = 0; //score
+        int posisiMundur = 0;
         int nyawa = 3; 
         int pilih; //remove obstacle
         int kecepatan = 10; //kec.awal obstacle
@@ -53,15 +54,23 @@ namespace WindowsFormsApp2
             //pergerakan ke atas
             if (e.KeyCode == Keys.Up)
             {
+
                 vertikal = -80;
-                hitungSkor++;
+                if (posisiMundur == 0)
+                {
+                    hitungSkor++;
+                }
+                else if (posisiMundur < 0)
+                    posisiMundur++;
                 timerMati = 0; 
             }
+
             //pergerakan ke bawah
             if (e.KeyCode == Keys.Down && Player.Top < 300)
             {
                 vertikal = 80;
                 timerMati = 0;
+                posisiMundur--;
             }
             //pergerakan ke kiri
             if (e.KeyCode == Keys.Left && Player.Left > 60)
@@ -125,6 +134,7 @@ namespace WindowsFormsApp2
                 gameover();
                 gametimer.Stop();
             }
+            
             skor.Text = "SCORE : " + hitungSkor.ToString(); //text box game over
 
             //objek ganjil keluar dari kanan menuju ke kiri, objek genap sebaliknya
@@ -344,8 +354,8 @@ namespace WindowsFormsApp2
         private void gameover()
         {
             boxgameover.Left = 129; //posisi text box game over
-            skorakhir.Text = "Score = " + hitungSkor;
-            skorakhir.Left = 188; //posisi score akhir
+            skorakhir.Text = hitungSkor.ToString();
+            skorakhir.Left = 280; //posisi score akhir
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

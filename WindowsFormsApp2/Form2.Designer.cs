@@ -28,26 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.buttonlogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonlogin
             // 
-            this.buttonlogin.Location = new System.Drawing.Point(144, 99);
+            this.buttonlogin.BackColor = System.Drawing.Color.Transparent;
+            this.buttonlogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonlogin.BackgroundImage")));
+            this.buttonlogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonlogin.Location = new System.Drawing.Point(323, 342);
+            this.buttonlogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonlogin.Name = "buttonlogin";
-            this.buttonlogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonlogin.Size = new System.Drawing.Size(150, 50);
             this.buttonlogin.TabIndex = 0;
-            this.buttonlogin.Text = "Play";
-            this.buttonlogin.UseVisualStyleBackColor = true;
+            this.buttonlogin.UseVisualStyleBackColor = false;
             this.buttonlogin.Click += new System.EventHandler(this.buttonlogin_Click);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(781, 553);
             this.Controls.Add(this.buttonlogin);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
