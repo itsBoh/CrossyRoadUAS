@@ -37,6 +37,8 @@
             this.buttonlogin.BackColor = System.Drawing.Color.Transparent;
             this.buttonlogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonlogin.BackgroundImage")));
             this.buttonlogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonlogin.ForeColor = System.Drawing.Color.Transparent;
             this.buttonlogin.Location = new System.Drawing.Point(323, 342);
             this.buttonlogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonlogin.Name = "buttonlogin";
@@ -56,6 +58,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuPeR CaT";
