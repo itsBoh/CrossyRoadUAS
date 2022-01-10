@@ -29,6 +29,5 @@ namespace WindowsFormsApp2
             Application.Exit();
         }
 
-
     }
 }
