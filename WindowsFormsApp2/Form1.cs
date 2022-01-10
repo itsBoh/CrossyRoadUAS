@@ -28,7 +28,7 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
-            tulisannyawa.Text = "LIFE"; //text box pojok kanan atas
+            
 
             // memasukkan 8 objek ke dalam list objek
             listObj.Add("obj1");
@@ -87,19 +87,25 @@ namespace WindowsFormsApp2
         }
         private void gametimerevent(object sender, EventArgs e)
         {
+            
             if (Player.Top < 40) //kalau posisi player sudah melewati obstacle plg atas
             {
                 Player.Top = 365; //reset posisi player
                 Player.Left = 270; //reset posisi player
                 kecepatan += 1;
                 hitunglevel++;
+                
+
                 //reset list obstacle
                 for (int i = listObs.Count-1; i >= 0; i--)
                 {
                     listObj.Add(listObs[i]);
                     listObs.RemoveAt(i);
                 }
+                //reset list kecepatan
                 listKecepatan.Clear();
+
+                //random lagi obstacle dan kecepatan
                 for (int i = 1; i <= 4; i++)
                 {
                     pilih = rand.Next(0, listObj.Count);
@@ -108,6 +114,9 @@ namespace WindowsFormsApp2
                     listKecepatan.Add(rand.Next(kecepatan - 5, kecepatan + 1));
                 }
             }
+
+            level.Text = "Level : " + hitunglevel;
+
             timerMati++; 
 
             //jika player bertabrakan dengan objek
@@ -127,6 +136,14 @@ namespace WindowsFormsApp2
                 Player.Left = 270; //reset posisi player
                 timerMati = 0;
             }
+            tulisannyawa.Text = "LIFE"; //text box pojok kanan atas
+
+            Player.Top += vertikal;
+            Player.Left += horizontal;
+            vertikal = 0;
+            horizontal = 0;
+            
+
             //game over
             if (nyawa == 0)
             {
@@ -135,7 +152,7 @@ namespace WindowsFormsApp2
                 gametimer.Stop();
             }
             
-            skor.Text = "SCORE : " + hitungSkor.ToString(); //text box game over
+            skor.Text = "SCORE : " + hitungSkor.ToString(); //SKOR DI KIRI ATAS
 
             //objek ganjil keluar dari kanan menuju ke kiri, objek genap sebaliknya
             //0
@@ -343,11 +360,7 @@ namespace WindowsFormsApp2
             if (obj8.Left > 900)
                 obj8.Left = -110;
 
-            Player.Top += vertikal;
-            Player.Left += horizontal;
-            vertikal = 0;
-            horizontal = 0;
-            level.Text = "Level : " + hitunglevel;
+            
         }
 
         //text box game over

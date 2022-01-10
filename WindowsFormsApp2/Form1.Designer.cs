@@ -278,7 +278,7 @@
             this.skorakhir.ForeColor = System.Drawing.SystemColors.Window;
             this.skorakhir.Location = new System.Drawing.Point(1200, 156);
             this.skorakhir.Name = "skorakhir";
-            this.skorakhir.Size = new System.Drawing.Size(202, 34);
+            this.skorakhir.Size = new System.Drawing.Size(197, 33);
             this.skorakhir.TabIndex = 27;
             this.skorakhir.Text = "label1";
             // 
@@ -309,11 +309,12 @@
             this.Controls.Add(this.nyawahitam);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Crossy Road";
+            this.Text = "SuPeR CaT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keydownevent);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
